@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "input_documents": [
+      "South of France - Cities.pdf",
+      "South of France - Cuisine.pdf",
+      "South of France - History.pdf",
+      "South of France - Restaurants and Hotels.pdf",
+      "South of France - Things to Do.pdf",
+      "South of France - Tips and Tricks.pdf",
+      "South of France - Traditions and Culture.pdf"
+    ],
+    "persona": "PhD Researcher in Computational Biology",
+    "job_to_be_done": "Prepare a comprehensive literature review focusing on methodologies, datasets, and performance benchmarks",
+    "processing_timestamp": "2025-07-28T23:38:31.355695"
+  },
+  "extracted_sections": [
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 4,
+      "section_title": "Cévennes National Park : Go canyoning in the rugged terrain of this beautiful park.",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 7,
+      "section_title": "Corsica : Experience a yoga and wellness retreat on this beautiful island.",
+      "importance_rank": 2
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 5,
+      "section_title": "Sarlat : Join a foie gras workshop and learn to prepare this delicacy.",
+      "importance_rank": 3
+    },
+    {
+      "document": "South of France - History.pdf",
+      "page_number": 4,
+      "section_title": "audiences from around the globe 6 .",
+      "importance_rank": 4
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 2,
+      "section_title": "La Ciotat : Try snorkeling in the clear waters around the Île Verte.",
+      "importance_rank": 5
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 8,
+      "section_title": "Hotel de la Gare (Montpellier): A budget-friendly hotel located in the heart of",
+      "importance_rank": 6
+    },
+    {
+      "document": "South of France - History.pdf",
+      "page_number": 2,
+      "section_title": "the city's volunteers composed the national anthem of France, \"La Marseillaise\" 2 .",
+      "importance_rank": 7
+    },
+    {
+      "document": "South of France - History.pdf",
+      "page_number": 6,
+      "section_title": "allowing defenders to shoot arrows and drop projectiles on attackers below 10 .",
+      "importance_rank": 8
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 2,
+      "section_title": "spot for a casual meal.",
+      "importance_rank": 9
+    },
+    {
+      "document": "South of France - History.pdf",
+      "page_number": 5,
+      "section_title": "worship 8 .",
+      "importance_rank": 10
+    },
+    {
+      "document": "South of France - History.pdf",
+      "page_number": 3,
+      "section_title": "dates back to 1873 and features elaborate parades, floats, and flower battles 4 .",
+      "importance_rank": 11
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 7,
+      "section_title": "a top choice for fine dining.",
+      "importance_rank": 12
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 3,
+      "section_title": "family meal.",
+      "importance_rank": 13
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 4,
+      "section_title": "make it a top choice for fine dining.",
+      "importance_rank": 14
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 9,
+      "section_title": "Hôtel de Paris (Monaco): A luxurious family-friendly hotel oﬀering spacious rooms,",
+      "importance_rank": 15
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 6,
+      "section_title": "a top choice for fine dining.",
+      "importance_rank": 16
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 11,
+      "section_title": "Hôtel de Paris (Monaco): A luxurious hotel located on the Boulevard de la Croisette,",
+      "importance_rank": 17
+    }
+  ],
+  "sub_section_analysis": [
+    {
+      "document": "South of France - Things to Do.pdf",
+      "refined_text": "Outdoor Activities The diverse landscapes of the South of France oﬀer plenty of opportunities for outdoor adventures: Hiking and Biking • Verdon Gorge: Known as the \"Grand Canyon of Europe,\" oﬀering spectacular hiking trails. • Luberon Regional Park: Explore picturesque villages and rolling hills, famous for lavender fields and vineyards. • Pyrenees National Park: Enjoy challenging hikes and stunning mountain scenery.",
+      "page_number": 4
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "refined_text": "Relaxation and Wellness For those seeking relaxation and rejuvenation, the South of France oﬀers plenty of options: Spa and Wellness Retreats • Aix-en-Provence: Visit Thermes Sextius for thermal baths and massages. • Bordeaux: Enjoy vinotherapy treatments at Les Sources de Caudalie. • Vichy: Experience hydrotherapy and mud baths at Spa Vichy Célestins. • Evian-les-Bains: Relax at the Evian Resort, known for its mineral-rich waters.",
+      "page_number": 7
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "refined_text": "Culinary Delights The South of France is a food lover's paradise. Here are some activities to indulge in the region's culinary delights: Wine Tasting • Provence: Explore vineyards known for their rosé wines. • Languedoc: Discover diverse wines, including reds, whites, and sparkling wines. • Châteauneuf-du-Pape: Visit this famous wine region near Avignon. • Bandol: Taste the robust red wines and refreshing rosés of this coastal region.",
+      "page_number": 5
+    },
+    {
+      "document": "South of France - History.pdf",
+      "refined_text": "Avignon: The City of Popes Avignon, located on the banks of the Rhône River, is best known for its role as the seat of the papacy in the 14th century. The city was home to seven popes during this period, leaving a lasting legacy of impressive architecture and cultural heritage. Key Historical Sites in Avignon • Palais des Papes: This massive Gothic palace was the residence of the popes during their stay in Avignon. It is one of the largest and most important medieval Gothic buildings in Europe.",
+      "page_number": 4
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "refined_text": "Coastal Adventures The South of France is renowned for its beautiful coastline along the Mediterranean Sea. Here are some activities to enjoy by the sea: Beach Hopping • Nice: Visit the sandy shores and enjoy the vibrant Promenade des Anglais. • Antibes: Relax on the pebbled beaches and explore the charming old town. • Saint-Tropez: Experience the exclusive beach clubs and glamorous atmosphere.",
+      "page_number": 2
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "Montpellier, oﬀering comfortable rooms and easy access to the city's attractions. The artistic decor and central location make it a popular choice.",
+      "page_number": 8
+    },
+    {
+      "document": "South of France - History.pdf",
+      "refined_text": "Marseille: The Oldest City in France Marseille, founded by Greek sailors around 600 BC, is the oldest city in France. Its strategic location on the Mediterranean coast made it a vital trading port throughout history. The city's rich cultural heritage is reflected in its diverse architecture and vibrant atmosphere. Key Historical Sites in Marseille • Old Port (Vieux-Port): The heart of Marseille, the Old Port has been a bustling harbor for over 2,600 years.",
+      "page_number": 2
+    },
+    {
+      "document": "South of France - History.pdf",
+      "refined_text": "Carcassonne: A Medieval Fortress Carcassonne is a fortified city in the Languedoc region, known for its well-preserved medieval architecture. The city's history dates back to the Roman period, but it is best known for its role in the medieval period as a stronghold during the Albigensian Crusade. Key Historical Sites in Carcassonne • Cité de Carcassonne: This medieval fortress is a UNESCO World Heritage site and one of the most impressive examples of medieval architecture in Europe.",
+      "page_number": 6
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "• Le Bistrot du Paradou (Paradou): A charming bistro oﬀering a daily fixed menu with hearty Provençal dishes at reasonable prices. The warm, welcoming environment and generous servings make it a must-visit. • Le Comptoir du Marché (Nice): This bistro oﬀers a variety of traditional French dishes at aﬀordable prices. The cozy atmosphere and friendly staﬀ make it a great spot for a casual meal. • Le Petit Nice (Marseille): A budget-friendly option oﬀering a variety of seafood dishes.",
+      "page_number": 2
+    },
+    {
+      "document": "South of France - History.pdf",
+      "refined_text": "Nîmes: The Rome of France Nîmes, often referred to as the \"Rome of France,\" boasts some of the best-preserved Roman architecture in the country. The city's history dates back to the Roman Empire, when it was an important settlement in the province of Gallia Narbonensis. Key Historical Sites in Nîmes • Arena of Nîmes: This Roman amphitheater, built in the 1st century AD, is one of the best-preserved in the world. It still hosts events, including concerts and bullfights.",
+      "page_number": 5
+    },
+    {
+      "document": "South of France - History.pdf",
+      "refined_text": "Nice: The Jewel of the French Riviera Nice, located on the French Riviera, has been a popular destination for centuries. Its history dates back to the ancient Greeks, who founded the city around 350 BC. Nice later became a Roman colony and has since evolved into a glamorous resort town. Key Historical Sites in Nice • Castle Hill (Colline du Château): This hilltop park oﬀers stunning views of Nice and the Mediterranean.",
+      "page_number": 3
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "• Le Pavillon Ledoyen (Paris): A three-Michelin-starred restaurant oﬀering a variety of dishes made with fresh, local ingredients. The elegant setting and exceptional service make it a top choice for fine dining. • Le Pré Catelan (Paris): A three-Michelin-starred restaurant oﬀering a variety of dishes made with fresh, local ingredients. The elegant setting and exceptional service make it a top choice for fine dining.",
+      "page_number": 7
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "• La Table du Marché (Saint-Rémy-de-Provence): A welcoming restaurant with a varied menu that includes kid-friendly options and fresh, local ingredients. The charming setting and friendly staﬀ ensure a pleasant dining experience for families. • Le Grill (Decize): A family-friendly restaurant oﬀering a variety of grilled meats and classic French dishes in a casual setting. The relaxed atmosphere and extensive menu cater to all ages.",
+      "page_number": 3
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "• Le Petit Nice Passedat (Marseille): A three-Michelin-starred restaurant oﬀering exquisite seafood dishes and stunning views of the Mediterranean. The creative menu and elegant ambiance make it a standout dining destination. • La Colombe d'Or (Saint-Paul-de-Vence): A historic restaurant and hotel that has hosted famous artists and celebrities, oﬀering a luxurious dining experience with a focus on Provençal cuisine. The art-filled setting and gourmet dishes make it a unique experience.",
+      "page_number": 4
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "beautiful gardens, and a variety of activities for children. The elegant decor and attentive service ensure a comfortable stay for families.",
+      "page_number": 9
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "• Le Petit Nice Passedat (Marseille): A three-Michelin-starred restaurant oﬀering exquisite seafood dishes and stunning views of the Mediterranean. The creative menu and elegant ambiance make it a standout dining destination. • La Colombe d'Or (Saint-Paul-de-Vence): A historic restaurant and hotel that has hosted famous artists and celebrities, oﬀering a luxurious dining experience with a focus on Provençal cuisine. The art-filled setting and gourmet dishes make it a unique experience.",
+      "page_number": 6
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "refined_text": "oﬀering elegant rooms, a private beach, and a Michelin-starred restaurant. The glamorous setting and high-end services make it a favorite among celebrities.",
+      "page_number": 11
+    }
+  ]
+}

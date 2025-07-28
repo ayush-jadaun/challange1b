@@ -1,0 +1,15 @@
+{
+  "total_documents": 7,
+  "total_sections_extracted": 15,
+  "average_relevance_score": 0.6093733333333333,
+  "score_distribution": {
+    "high_relevance": 0,
+    "medium_relevance": 15,
+    "low_relevance": 0
+  },
+  "document_distribution": {
+    "South of France - Tips and Tricks.pdf": 8,
+    "South of France - Restaurants and Hotels.pdf": 5,
+    "South of France - Things to Do.pdf": 2
+  }
+}

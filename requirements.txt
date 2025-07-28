@@ -1,0 +1,13 @@
+# Core dependencies
+PyMuPDF==1.23.14
+numpy==1.24.3
+scikit-learn==1.3.0
+sentence-transformers==2.2.2
+spacy==3.7.2
+
+# spaCy language model (will be downloaded in Dockerfile)
+# en-core-web-sm==3.7.1
+
+# Additional utilities
+pandas==2.0.3
+nltk==3.8.1
