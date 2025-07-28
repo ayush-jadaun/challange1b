@@ -1,275 +1,296 @@
-# Enhanced Document Intelligence System
+# Enhanced Document Intelligence System - Round 1B
+
+**Team: FrontendGrinders**  
+**Members:** Ayush Jadaun, Shreeya Srivastava, Ashish Singh  
+**Challenge:** Adobe India Hackathon 2025 - Round 1B: Persona-Driven Document Intelligence
 
 ## Overview
 
-This enhanced document intelligence system addresses the key issues in the original code and provides significant improvements for persona-driven document analysis. The system extracts structured information from PDF documents and ranks sections based on user personas and job requirements.
+This enhanced document intelligence system addresses the key requirements for Round 1B of the Adobe India Hackathon 2025. The system extracts structured information from PDF documents and ranks sections based on user personas and job requirements, providing intelligent document analysis for diverse use cases.
 
-## Key Improvements
+## Key Features
 
-### 1. Fixed spaCy Model Loading
-- **Problem**: Original code failed with "spaCy model not found" warning
-- **Solution**: 
-  - Multiple fallback options for spaCy models
-  - Automatic model download attempt
-  - Graceful fallback to basic text processing if spaCy unavailable
-  - Enhanced error handling and logging
+### 1. Persona-Driven Intelligence
+- **Advanced persona parsing** with role detection (Researcher, Student, Analyst, etc.)
+- **Domain classification** (research, business, education)
+- **Expertise area identification** and keyword extraction
+- **Context-aware job analysis** with task type classification
 
-### 2. Enhanced PDF Processing
-- **Improved heading detection** using multiple strategies:
+### 2. Multi-Strategy PDF Processing
+- **Robust heading detection** using:
   - Table of Contents extraction
-  - Font-based analysis with better heuristics
-  - Pattern-based detection (numbered sections, common headings)
-  - Duplicate removal and validation
-- **Better text extraction** with formatting preservation
-- **Robust content cleaning** with OCR artifact removal
+  - Font-based analysis with intelligent heuristics
+  - Pattern-based detection for numbered sections
+  - Fallback to page-based segmentation
+- **Enhanced text extraction** with formatting preservation
+- **Content cleaning** with OCR artifact removal
 
-### 3. Advanced Persona & Job Analysis
-- **Enhanced persona parsing** with:
-  - Better role extraction using regex patterns
-  - Domain classification with confidence scoring
-  - Seniority level detection
-  - Comprehensive keyword generation
-- **Improved job analysis** with:
-  - Task type classification
-  - Priority area extraction
-  - Deliverable identification
-  - Context-aware keyword extraction
-
-### 4. Sophisticated Relevance Scoring
+### 3. Sophisticated Relevance Scoring
 - **Multi-factor scoring algorithm**:
-  - Semantic similarity (with sentence transformers)
-  - Enhanced keyword matching with weighted importance
-  - Structural importance analysis
+  - Semantic similarity using sentence transformers
+  - Keyword matching with weighted importance
+  - Structural importance (heading level, page position)
   - Domain alignment scoring
   - Priority area alignment
-  - Contextual relevance assessment
 - **Adaptive weighting** based on persona and job characteristics
-- **Diversity filtering** to ensure varied content selection
+- **Diversity filtering** for comprehensive content selection
 
-### 5. Better Error Handling & Robustness
-- Comprehensive exception handling
-- Graceful degradation when models unavailable
-- Input validation and sanitization
-- Progress tracking and detailed logging
-- Output validation before saving
+### 4. Offline-First Architecture
+- **No internet dependencies** during processing
+- **Pre-downloaded models** embedded in Docker image
+- **Robust error handling** with graceful fallbacks
+- **CPU-optimized** for AMD64 architecture
 
-### 6. Enhanced Output Format
-- Additional metadata including processing statistics
-- Content previews and key phrase extraction
-- Section-level metadata (heading level, content length)
-- Processing quality indicators
+## Architecture & Setup
 
-## Installation & Setup
+### Docker-Based Deployment (Recommended)
 
-### Using Docker (Recommended)
+Our solution uses a multi-stage Docker build process that downloads models during image creation:
 
-1. **Build the Docker image:**
-```bash
-docker build --platform linux/amd64 -t enhanced-doc-intelligence:latest .
+#### Project Structure
+```
+frontendgrinders-solution/
+├── Dockerfile
+├── requirements.txt
+├── download_models.py
+├── challange2b.py
+└── README.md
 ```
 
-2. **Run the container:**
+#### Build Process
 ```bash
+# Build the Docker image (downloads models during build)
+docker build --platform linux/amd64 -t frontendgrinders-solution:v1 .
+```
+
+#### Execution (As Per Challenge Requirements)
+```bash
+# Run the container with volume mounts
 docker run --rm \
   -v $(pwd)/input:/app/input \
   -v $(pwd)/output:/app/output \
   --network none \
-  enhanced-doc-intelligence:latest
+  frontendgrinders-solution:v1
 ```
 
-### Local Installation
-
-1. **Install Python dependencies:**
-```bash
-pip install -r requirements.txt
+### Input Directory Structure
+Your `input` directory should contain:
+```
+input/
+├── document1.pdf
+├── document2.pdf
+├── document3.pdf (3-10 PDFs)
+├── persona.txt
+└── job.txt
 ```
 
-2. **Download spaCy model:**
-```bash
-python -m spacy download en_core_web_sm
+#### Sample Files
+
+**persona.txt**
+```
+PhD Researcher in Computational Biology specializing in machine learning applications for drug discovery and molecular analysis
 ```
 
-3. **Run the system:**
-```bash
-python enhanced_doc_intelligence.py --input_dir ./input --output_dir ./output
+**job.txt**
+```
+Prepare a comprehensive literature review focusing on methodologies, datasets, and performance benchmarks for neural network approaches in pharmaceutical research
 ```
 
-## Usage
-
-### Basic Usage
-```bash
-python enhanced_doc_intelligence.py \
-  --input_dir ./pdfs \
-  --output_dir ./results
-```
-
-### With Custom Persona and Job
-```bash
-python enhanced_doc_intelligence.py \
-  --input_dir ./pdfs \
-  --output_dir ./results \
-  --persona "PhD researcher in computational biology specializing in drug discovery" \
-  --job "Prepare comprehensive literature review focusing on methodologies and performance benchmarks"
-```
-
-### Command Line Options
-- `--input_dir`: Directory containing PDF files (default: `./input`)
-- `--output_dir`: Output directory for results (default: `./output`)
-- `--persona`: Persona description (optional)
-- `--job`: Job-to-be-done description (optional)
-- `--setup-deps`: Setup dependencies (download models)
-- `--verbose`: Enable verbose logging
-
-## Architecture
+## Technical Implementation
 
 ### Core Components
 
-1. **EnhancedDocumentProcessor**
-   - Multi-strategy heading detection
-   - Robust text extraction with formatting
-   - Content cleaning and validation
+1. **DocumentProcessor**
+   - Multi-strategy heading extraction
+   - Robust PDF text extraction using PyMuPDF
+   - Content cleaning and normalization
 
-2. **EnhancedPersonaAnalyzer**
-   - Advanced persona parsing with domain classification
-   - Comprehensive job analysis with task categorization
-   - Context-aware keyword extraction
+2. **PersonaAnalyzer**
+   - Role classification (Researcher, Student, Analyst, etc.)
+   - Domain detection (research, business, education)
+   - Keyword extraction and expertise mapping
 
-3. **EnhancedRelevanceEngine**
-   - Multi-factor relevance scoring
-   - Adaptive weighting algorithms
-   - Diversity-aware section ranking
+3. **RelevanceEngine**
+   - Sentence transformer-based semantic similarity
+   - TF-IDF keyword matching
+   - Structural importance weighting
+   - Priority alignment scoring
 
-4. **EnhancedDocumentIntelligenceSystem**
-   - Orchestrates the complete pipeline
-   - Progress tracking and error handling
-   - Enhanced output generation
+4. **DocumentIntelligenceSystem**
+   - Pipeline orchestration
+   - Progress tracking and logging
+   - Output generation and validation
 
-### Scoring Algorithm
+### Model Configuration
+- **Sentence Transformer**: `all-MiniLM-L6-v2` (~90MB)
+- **SpaCy Model**: `en_core_web_sm` (~50MB)
+- **Total Model Size**: ~140MB (well under 1GB limit)
 
-The relevance score combines multiple factors:
-
-- **Semantic Similarity (25-35%)**: Using sentence transformers or TF-IDF fallback
-- **Keyword Matching (20-25%)**: Weighted by keyword importance
-- **Structural Importance (15-25%)**: Based on heading level and position
-- **Domain Alignment (15-20%)**: Domain-specific indicator matching
-- **Priority Alignment (10-25%)**: Alignment with job priorities
-- **Contextual Relevance (5-15%)**: Document structure and quality indicators
-
-Weights are dynamically adjusted based on:
-- Persona characteristics (role, domain, seniority)
-- Job requirements (task type, priorities)
-- Content availability and quality
+### Performance Optimizations
+- **Efficient text processing**: Chunked processing for large documents
+- **Model caching**: Single model load per container run
+- **Memory management**: Optimized for 16GB RAM constraint
+- **Processing time**: Optimized for <60 seconds per collection
 
 ## Output Format
 
-The system generates:
+The system generates `output.json` in the specified format:
 
-1. **output.json**: Main results with ranked sections
-2. **processing_stats.json**: Processing statistics and quality metrics
-
-### Sample Output Structure
 ```json
 {
   "metadata": {
-    "input_documents": ["doc1.pdf", "doc2.pdf"],
-    "persona": "PhD researcher...",
-    "job_to_be_done": "Literature review...",
-    "processing_timestamp": "2025-07-28T20:58:42",
+    "input_documents": ["doc1.pdf", "doc2.pdf", "doc3.pdf"],
+    "persona": "PhD Researcher in Computational Biology...",
+    "job_to_be_done": "Prepare a comprehensive literature review...",
+    "processing_timestamp": "2025-07-28T20:58:42.123456",
     "persona_analysis": {
-      "role": "PhD Researcher",
+      "role": "Researcher",
       "domain": "research",
-      "seniority_level": "senior"
+      "keywords": ["computational", "biology", "machine", "learning"]
     },
     "job_analysis": {
       "task_type": "literature_review",
-      "priority_areas": ["methodology", "benchmarks"]
+      "priority_areas": ["methodologies", "datasets", "benchmarks"]
     }
   },
   "extracted_sections": [
     {
-      "document": "doc1.pdf",
+      "document": "paper1.pdf",
       "page_number": 3,
       "section_title": "Methodology",
-      "section_level": "H2",
-      "importance_rank": 1,
-      "relevance_score": 0.8945,
-      "content_length": 1234,
-      "content_preview": "This section describes..."
+      "importance_rank": 1
+    },
+    {
+      "document": "paper2.pdf",
+      "page_number": 5,
+      "section_title": "Performance Evaluation",
+      "importance_rank": 2
     }
   ],
   "sub_section_analysis": [
     {
-      "document": "doc1.pdf",
-      "refined_text": "Enhanced extracted text...",
-      "page_number": 3,
-      "section_title": "Methodology",
-      "relevance_score": 0.8945,
-      "key_phrases": ["neural networks", "performance evaluation"]
+      "document": "paper1.pdf",
+      "refined_text": "This section presents a novel neural network architecture for drug discovery applications. The methodology combines convolutional layers with attention mechanisms to process molecular structures...",
+      "page_number": 3
+    },
+    {
+      "document": "paper2.pdf",
+      "refined_text": "Performance benchmarks were established using standard datasets including ChEMBL and PubChem. The evaluation metrics include accuracy, precision, recall, and F1-scores...",
+      "page_number": 5
     }
   ]
 }
 ```
 
-## Performance Optimizations
+## Test Cases Supported
 
-- **Efficient PDF processing**: Selective page analysis for large documents
-- **Model caching**: Reuse of loaded models across documents
-- **Memory management**: Streaming processing for large document collections
-- **Parallel processing**: Ready for multi-threading (can be enabled)
+### 1. Academic Research
+- **Documents**: Research papers on specialized topics
+- **Persona**: PhD researchers, academic professionals
+- **Job**: Literature reviews, methodology analysis
+
+### 2. Business Analysis
+- **Documents**: Annual reports, financial statements
+- **Persona**: Investment analysts, business consultants
+- **Job**: Market analysis, financial trend identification
+
+### 3. Educational Content
+- **Documents**: Textbook chapters, course materials
+- **Persona**: Students at various levels
+- **Job**: Exam preparation, concept understanding
 
 ## Constraints Compliance
 
-- ✅ **CPU only**: No GPU dependencies
-- ✅ **Model size**: ≤ 1GB (sentence transformer ~90MB, spaCy ~50MB)
-- ✅ **Processing time**: Optimized for ≤60 seconds per collection
-- ✅ **Offline operation**: No internet calls during processing
-- ✅ **AMD64 compatibility**: Docker platform specification included
+✅ **CPU Only**: No GPU dependencies, optimized for AMD64  
+✅ **Model Size**: ~140MB total (well under 1GB limit)  
+✅ **Processing Time**: Optimized for <60 seconds per collection  
+✅ **Offline Operation**: No internet calls during processing  
+✅ **Memory Efficient**: Works within 16GB RAM constraint  
+✅ **Platform Compatible**: AMD64 Docker platform specified  
 
-## Testing
+## Dependencies
 
-The system has been tested with:
-- Research papers (10-50 pages)
-- Business reports and financial documents
-- Educational textbooks and course materials
-- Technical documentation
+### Python Packages (requirements.txt)
+```
+PyMuPDF==1.23.14
+numpy==1.24.3
+scikit-learn==1.3.0
+spacy==3.7.2
+sentence-transformers==2.2.2
+torch==2.0.1
+transformers==4.35.0
+```
+
+### System Requirements
+- **Platform**: AMD64 (x86_64)
+- **RAM**: 16GB
+- **CPU**: 8 cores
+- **Storage**: ~2GB for models and processing
+
+## Scoring Optimization
+
+Our solution is optimized for the challenge scoring criteria:
+
+### Section Relevance (60 points)
+- Semantic similarity matching between sections and persona+job
+- Weighted keyword matching with domain-specific terms
+- Structural importance analysis (H1 > H2 > H3)
+- Priority area alignment with job requirements
+
+### Sub-Section Relevance (40 points)
+- Granular text extraction with context preservation
+- Content refinement and summarization
+- Key phrase extraction and relevance scoring
+- Quality assessment and filtering
+
+## Team Approach
+
+**FrontendGrinders** focused on creating a robust, production-ready solution that:
+
+1. **Handles edge cases** gracefully with comprehensive error handling
+2. **Scales efficiently** across different document types and domains
+3. **Provides consistent results** through deterministic algorithms
+4. **Meets all constraints** while maximizing performance
+5. **Follows best practices** in code organization and documentation
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **spaCy model not found**
-   - Run: `python enhanced_doc_intelligence.py --setup-deps`
-   - Or manually: `python -m spacy download en_core_web_sm`
+1. **Docker build fails**
+   ```bash
+   # Ensure platform specification
+   docker build --platform linux/amd64 -t frontendgrinders-solution:v1 .
+   ```
 
-2. **PDF processing errors**
-   - Check PDF file integrity
-   - Ensure files are not password-protected
-   - Verify sufficient disk space
+2. **Models not loading**
+   - Check that models were downloaded during build
+   - Verify model directory structure in container
 
-3. **Memory issues**
-   - Reduce batch size for large document collections
-   - Ensure sufficient RAM (recommended: 4GB+)
+3. **PDF processing errors**
+   - Ensure PDFs are not password-protected
+   - Check file integrity and format compatibility
 
-4. **Poor relevance scores**
-   - Provide more specific persona descriptions
-   - Include detailed job requirements with priorities
-   - Check document quality and content relevance
+4. **Memory issues**
+   - Monitor container memory usage
+   - Reduce document collection size if needed
 
-### Logging
-
-Enable verbose logging for debugging:
-```bash
-python enhanced_doc_intelligence.py --verbose
-```
+### Debug Mode
+For development and testing, you can run with verbose logging by modifying the script to include debug information.
 
 ## Future Enhancements
 
-- Multi-language support
-- Advanced NLP techniques (named entity recognition)
-- Interactive web interface
-- Real-time processing capabilities
+- Multi-language document support
+- Advanced named entity recognition
+- Interactive visualization of relevance scores
 - Integration with external knowledge bases
+- Real-time processing capabilities
 
-## License
+## Acknowledgments
 
-This project is developed for the Adobe India Hackathon 2025.
+This solution was developed by **Team FrontendGrinders** for the Adobe India Hackathon 2025. We appreciate Adobe's commitment to innovation in document intelligence and are excited to contribute to the future of PDF interaction technology.
+
+---
+
+**Team FrontendGrinders**  
+*Connecting the Dots Through Intelligent Document Analysis*
