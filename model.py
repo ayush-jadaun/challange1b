@@ -1,6 +1,5 @@
 import os
 import logging
-from sentence_transformers import SentenceTransformer
 import spacy
 
 # Configure logging
@@ -23,14 +22,24 @@ def download_and_save_models():
     for offline use.
     """
     logger.info("Starting model download and setup process...")
-
+    
     # Create the target directory if it doesn't exist
     os.makedirs(MODEL_DIR, exist_ok=True)
     logger.info(f"Models will be saved to: '{MODEL_DIR}' directory.")
-
+    
     # --- Download and Save Sentence Transformer Model ---
     try:
         logger.info(f"Downloading Sentence Transformer model: '{SENTENCE_MODEL_NAME}'...")
+        
+        # Try importing sentence_transformers with error handling
+        try:
+            from sentence_transformers import SentenceTransformer
+        except ImportError as import_error:
+            logger.error(f"Failed to import sentence_transformers: {import_error}")
+            logger.info("Try installing compatible versions:")
+            logger.info("pip install sentence-transformers==2.2.2 huggingface_hub==0.16.4")
+            exit(1)
+        
         # Load the model from the hub
         model = SentenceTransformer(SENTENCE_MODEL_NAME)
         # Save the model to the specified local path
@@ -40,7 +49,7 @@ def download_and_save_models():
         logger.error(f"Failed to download or save Sentence Transformer model. Error: {e}")
         # Exit if the essential model fails to download
         exit(1)
-
+    
     # --- Download and Save SpaCy Model ---
     try:
         logger.info(f"Downloading SpaCy model: '{SPACY_MODEL_NAME}'...")
@@ -55,7 +64,7 @@ def download_and_save_models():
         logger.error(f"Failed to download or save SpaCy model. Error: {e}")
         # Exit if the essential model fails to download
         exit(1)
-
+    
     logger.info("=" * 60)
     logger.info("All models have been downloaded and saved successfully.")
     logger.info("The application is now ready for offline execution.")
